@@ -1,5 +1,3 @@
-n=int(input())
-m=int(input())
-print(n+m)
-print(n-m)
-print(n*m)
+N = int(input())
+for i in range(N):
+    print(i+1)
