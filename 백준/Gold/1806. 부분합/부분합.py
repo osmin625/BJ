@@ -1,22 +1,13 @@
-import sys
-input = sys.stdin.readline
-
-N,S = map(int,input().split())
-nums = [0]
-nums.extend(list(map(int,input().split())))
-for i in range(1,N+1):
-    nums[i] += nums[i-1]
-# print(nums)
-i, j = 0, 0
-min_len = N + 1
-while True:
-    i += 1
-    if i == N+1:
-        break
-    while j <= i and nums[i] - nums[j] >= S:
-        min_len = min(min_len,i - j)
-        j += 1
-if min_len == N + 1:
-    print(0)
-else:
-    print(min_len)
+n,s = map(int,input().split())
+ans = list(map(int,input().split()))
+wow = []
+sum_ = 0
+j = 0
+for i in range(n):
+    sum_ += ans[i]
+    if sum_ >= s:
+        while sum_ >= s:
+            wow.append(i-j+1)
+            sum_ -= ans[j]
+            j += 1
+print(min(wow) if wow else 0)
