@@ -10,4 +10,4 @@ for i in range(n):
             wow.append(i-j+1)
             sum_ -= ans[j]
             j += 1
-print(min(wow) if wow else 0)
+print(min(wow or [0]))
