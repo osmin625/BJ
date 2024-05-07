@@ -15,9 +15,6 @@ O(n^2)이면 안됨.
 
 '''
 def solution(sequence):
-    sequence = [val * (-1 if idx % 2 else 1) for (idx, val) in enumerate(sequence)]
-
-    for i in range(len(sequence) - 1):
-        sequence[i + 1] += sequence[i]
-
-    return max(abs(max(sequence)), abs(min(sequence)), max(sequence) - min(sequence))
+    v = [0]
+    for i,s in enumerate(sequence): v.append(v[-1] + s * [1,-1][i%2])
+    return max(v) - min(v)
